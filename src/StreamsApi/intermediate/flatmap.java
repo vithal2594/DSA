@@ -11,6 +11,5 @@ package StreamsApi.intermediate;
 // 10. Given a list of tags (like #java,#streams), flatten to individual tags.
 public class flatmap {
     public static void main(String[] args){
-
     }
 }
