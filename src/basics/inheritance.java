@@ -1,7 +1,7 @@
-package Prac.basics;
+package basics;
 
 // Superclass (Parent)
-class Animal {
+class Animal1 {
     void eat() {
         System.out.println("Animal is eating...");
     }
@@ -12,7 +12,7 @@ class Animal {
 }
 
 // Subclass (Child) - Inherits from Animal
-class Dog extends Animal {
+class Dog extends Animal1 {
     void bark() {
         System.out.println("Dog is barking!");
     }

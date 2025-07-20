@@ -1,0 +1,21 @@
+Hirarchy:-
+ 1. Throwable
+  1. Exception
+    3. RuntimeException
+      4. NullPointerException
+      5. IllegalArgumentException
+      6. IllegalStateException
+      7. IndexOutOfBoundsException
+      8. ClassCastException
+    3. IOException
+    3. SQLException
+  2. Error
+   1.AllOtherErrors
+    1. OutOfMemoryError
+    2. StackOverflowError
+
+   // Types of Exceptions:-
+ 1.UncheckedException;-An unchecked exception in Java is an exception that is not checked at compile time. These exceptions inherit from RuntimeException and its subclasses. They typically indicate programming errors, such as logic mistakes or improper use of an API (e.g., NullPointerException, IllegalArgumentException). Unchecked exceptions do not require explicit handling with try-catch blocks or declaration in method signatures.
+ 2.CheckedException:- A checked exception in Java is an exception that is checked at compile time. These exceptions inherit from Exception but not from RuntimeException. Checked exceptions represent conditions that a reasonable application might want to catch, such as IOException or SQLException. Methods that can throw checked exceptions must declare them in their method signature using the throws keyword, and callers are required to handle or propagate them.
+ 3.error:- An error in Java is a serious problem that a reasonable application should not try to catch. Errors are subclasses of the Error class and typically indicate severe issues like system failures (e.g., OutOfMemoryError, StackOverflowError). Errors are not meant to be caught or handled by applications, as they usually indicate problems that cannot be recovered from.
+                 In Java, an Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Errors are typically external to the application and represent conditions like OutOfMemoryError or StackOverflowError. They are not meant to be handled by application code.
