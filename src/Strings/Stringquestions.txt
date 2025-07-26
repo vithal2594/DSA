@@ -1,0 +1,101 @@
+🟢 Easy String Problems (30 Questions)
+Reverse a String
+
+Check for Palindrome
+
+Remove Duplicates from String
+
+Check Anagram of Two Strings
+
+Count Vowels and Consonants
+
+Toggle Case of Each Character
+
+Check if Two Strings are Isomorphic
+
+Implement strstr() / Substring Search
+
+Find Duplicate Characters in a String
+
+Check if One String is a Rotation of Another
+
+Remove All Occurrences of a Substring
+
+Find the First Non-Repeating Character
+
+Implement atoi() (String to Integer)
+
+Convert Roman Numerals to Integer
+
+Print All Substrings of a String
+
+Check if String Contains Only Digits
+
+Count the Number of Words in a String
+
+Compress the String (Run Length Encoding)
+
+Check if Two Strings are Permutations of Each Other
+
+Check if String is a Pangram
+
+Capitalize First Letter of Every Word
+
+Convert String to Lower/Upper Case Without Using Library Functions
+
+Find the Longest Word in a Sentence
+
+Frequency of Characters in String
+
+Remove All Spaces from String
+
+Replace All Spaces with Hyphens
+
+Check for Balanced Parentheses (only () considered)
+
+Print Characters in Decreasing Frequency
+
+Check if a String is a Subsequence of Another
+
+Count and Say Problem (String Encoding)
+
+🟠 Medium String Problems (20 Questions)
+Longest Palindromic Substring
+
+Longest Common Prefix
+
+Zigzag Conversion of String
+
+Group Anagrams Together
+
+Valid Parentheses (with ()[]{})
+
+Minimum Add to Make Parentheses Valid
+
+Longest Substring Without Repeating Characters
+
+Longest Repeating Character Replacement
+
+Smallest Window in a String Containing All Characters of Another
+
+Word Break Problem (DP)
+
+Check if Strings are Scramble of Each Other
+
+Wildcard Pattern Matching
+
+Regular Expression Matching
+
+Minimum Characters to Add at Front to Make String Palindrome
+
+Implement a Basic Calculator
+
+Check if a Given Sequence of Words Follows a Given Pattern
+
+String Multiplication (simulate multiplication)
+
+Decode a String (e.g., 3[a2[c]] → accaccacc)
+
+Generate All Valid Parentheses
+
+Count Number of Palindromic Substrings

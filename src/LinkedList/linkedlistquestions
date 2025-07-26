@@ -1,0 +1,101 @@
+ Easy Linked List Problems (30 Questions)
+Reverse a Linked List (Iterative & Recursive)
+
+Find the Length of a Linked List
+
+Insert a Node at the Beginning
+
+Insert a Node at the End
+
+Delete a Node at a Given Position
+
+Delete the First Node
+
+Delete the Last Node
+
+Search for a Value in Linked List
+
+Find the Middle of the Linked List
+
+Check if Linked List is Palindrome
+
+Detect Loop in Linked List
+
+Find Nth Node from End
+
+Remove Duplicates from Sorted Linked List
+
+Remove Duplicates from Unsorted Linked List
+
+Merge Two Sorted Linked Lists
+
+Print Linked List in Reverse (without modifying list)
+
+Check If Two Linked Lists Are Identical
+
+Swap Nodes in Linked List
+
+Delete the Entire Linked List
+
+Insert in a Sorted Linked List
+
+Pairwise Swap Nodes
+
+Segregate Even and Odd Nodes
+
+Move Last Element to Front
+
+Get Intersection Point of Two Linked Lists
+
+Check Circular Linked List
+
+Convert Binary Number in LL to Integer
+
+Count Nodes in Loop
+
+Split Circular Linked List into Two Halves
+
+Find Frequency of Given Element
+
+Find Maximum Value in Linked List
+
+🟠 Medium Linked List Problems (20 Questions)
+Reverse Nodes in K-Group
+
+Detect and Remove Loop
+
+Add Two Numbers Represented by Linked Lists
+
+Flatten a Multilevel Linked List
+
+Clone a Linked List with Random Pointers
+
+Rotate Linked List (Right Rotation)
+
+Sort a Linked List (Merge Sort)
+
+Intersection of Two Linked Lists
+
+Check If Linked List is a Palindrome (O(1) Space)
+
+Flatten a Linked List (Vertical + Horizontal Links)
+
+Rearrange Linked List in Zigzag Fashion
+
+Partition Linked List Around a Value
+
+Delete Node with Only Access to That Node
+
+Reorder List (L0 → Ln → L1 → Ln-1 …)
+
+Remove Nth Node from End
+
+Add 1 to Number Represented by Linked List
+
+Segregate 0s, 1s and 2s in a Linked List
+
+Convert a Binary Tree to DLL
+
+Convert a Doubly Linked List to Balanced BST
+
+LRU Cache (Linked List + HashMap)

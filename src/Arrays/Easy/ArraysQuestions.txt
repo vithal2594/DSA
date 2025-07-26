@@ -1,0 +1,133 @@
+🔹 Easy Level (30 Problems)
+Find the Largest Element in an Array
+
+Find the Second Largest Element
+
+Check if Array is Sorted
+
+Remove Duplicates from Sorted Array
+
+Left Rotate Array by One
+
+Left Rotate Array by D Positions
+
+Move All Zeros to End
+
+Linear Search in Array
+
+Find Frequency of Each Element
+
+Find Missing Number in 1 to N
+
+Find the Union of Two Arrays
+
+Find the Intersection of Two Arrays
+
+Find the Number That Appears Once (All Others Twice)
+
+Check if Array Contains Duplicate
+
+Count Pairs with Given Sum
+
+Find Maximum Consecutive 1s
+
+Reverse an Array
+
+Maximum and Minimum in Array
+
+Sum of All Elements in Array
+
+Find First Repeating Element
+
+Find Element with Odd Occurrences
+
+Check if Subarray with Zero Sum Exists
+
+Find the Longest Subarray with Given Sum
+
+Check if Array is a Palindrome
+
+Find the Kth Smallest Element
+
+Find Leaders in Array
+
+Find Peak Element
+
+Count Inversions in Array
+
+Sort Array of 0s, 1s and 2s (Dutch National Flag Problem)
+
+Rotate Array (Using Reversal Algorithm)
+
+🔸 Medium Level (20 Problems)
+Kadane’s Algorithm (Maximum Subarray Sum)
+
+Majority Element (>n/2 times)
+
+Subarray with Given XOR
+
+Longest Consecutive Sequence
+
+Trapping Rain Water
+
+Merge Intervals
+
+Set Matrix Zeros (in-place)
+
+Spiral Order Matrix Traversal
+
+Find Median of Two Sorted Arrays
+
+Three Sum Problem
+
+Product of Array Except Self
+
+Sliding Window Maximum
+
+Minimum Swaps to Sort Array
+
+Maximum Product Subarray
+
+Minimum Size Subarray Sum
+
+Search in Rotated Sorted Array
+
+Next Permutation
+
+Merge Sorted Arrays (without extra space)
+
+Find Duplicate Number (Floyd’s Tortoise and Hare)
+
+Count Subarrays with Given Sum (Prefix Sum + Hashing)
+
+
+hard//
+Trapping Rain Water: Compute how much water can be trapped between bars of varying heights.
+
+First Missing Positive: Find the smallest positive integer that is not present in an unsorted integer array.
+
+Largest Rectangle in Histogram: Find the area of the largest rectangle in a histogram.
+
+Median of Two Sorted Arrays: Find the median of two sorted arrays of size m and n.
+
+Jump Game II: Find the minimum number of jumps to reach the end of an array.
+
+Max Value of Equation: Find the maximum value of yi + yj + |xi - xj| for a given set of points.
+
+Sliding Window Maximum: Find the maximum for each and every contiguous subarray of size k.
+
+Subarray Sums Divisible by K: Find the number of non-empty subarrays with a sum divisible by k.
+
+Best Time to Buy and Sell Stock III: Find the maximum profit you can achieve with at most two transactions.
+
+Best Time to Buy and Sell Stock IV: Generalize the "Best Time to Buy and Sell Stock" problem to k transactions.
+
+Candy: Distribute candies to children based on their ratings, ensuring a child with a higher rating gets more candies than their neighbors.
+
+Patching Array: Find the minimum number of patches required to make the array cover all numbers from 1 to n.
+
+Find the Longest Valid Obstacle Course at Each Position: A more complex variation of the Longest Increasing Subsequence (LIS) problem.
+
+Count of Smaller Numbers After Self: For each element, count how many smaller elements are to its right.
+
+Reverse Pairs: Count the number of pairs (i, j) such that i < j and nums[i] > 2 * nums[j].
