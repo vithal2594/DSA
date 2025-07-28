@@ -1,0 +1,105 @@
+Binary Search Practice Problems (Easy to Medium)
+✅ Basic Binary Search
+Binary Search on a Sorted Array
+
+First Occurrence of a Number in Sorted Array
+
+Last Occurrence of a Number in Sorted Array
+
+Count of a Number in Sorted Array
+
+Search in a Rotated Sorted Array
+
+Search in a Rotated Sorted Array with Duplicates
+
+Find Index of Minimum in Rotated Sorted Array
+
+Floor of a Number in Sorted Array
+
+Ceil of a Number in Sorted Array
+
+Find Square Root of a Number (using Binary Search)
+
+✅ Search in Special Arrays
+Peak Element in an Array
+
+Find Local Minimum in Unsorted Array
+
+Search in Bitonic Array
+
+Find the Unique Element in a Sorted Array (All others occur twice)
+
+Find Element in Infinite Sorted Array
+
+Find Pivot Index in Rotated Sorted Array
+
+Search in 2D Matrix (Leetcode 74)
+
+Search in a Row-wise and Column-wise Sorted Matrix
+
+Find First and Last Position of Element in Sorted Array
+
+Minimum Element in Rotated Sorted Array
+
+✅ Binary Search on Answers / Optimization Problems
+Minimum Number in Array After K Increments
+
+Minimum Speed to Arrive on Time (Leetcode 1870)
+
+Koko Eating Bananas (Leetcode 875)
+
+Capacity to Ship Packages Within D Days (Leetcode 1011)
+
+Minimum Number of Days to Make Bouquets (Leetcode 1482)
+
+Find Smallest Divisor Given a Threshold
+
+Allocate Minimum Number of Pages
+
+Painter's Partition Problem
+
+Aggressive Cows (Spoj)
+
+EKO - Wood Cutting Problem (SPOJ)
+
+✅ Binary Search on Sorted Subarrays
+Number of Times a Sorted Array is Rotated
+
+Median of Two Sorted Arrays
+
+Find K Closest Elements to X
+
+Kth Smallest Element in Sorted Matrix
+
+Count Occurrences of a Number in Sorted Matrix
+
+Search Insert Position
+
+Find Peak Element II (2D Array)
+
+Check if Array is Sorted and Rotated
+
+Maximum in Bitonic Array
+
+Find Position of an Element in Infinite Sorted Array
+
+✅ Binary Search on Real Values / Precision Search
+Find Square Root (Floating Point Precision)
+
+Nth Root of a Number using Binary Search
+
+Divide Two Integers without Using Division
+
+Find Cube Root of Number using Binary Search
+
+Allocate Books Problem
+
+Maximum Length of Ribbon Cuts
+
+Maximum Distance Between Gas Stations
+
+Split Array Largest Sum
+
+Find the Smallest Positive Number Missing from an Array
+
+Find the Maximum Number of Removable Characters (Leetcode 1898)

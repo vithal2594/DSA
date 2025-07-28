@@ -1,3 +1,5 @@
+package Arrays.Easy;
+
 //Input: n = 4
 //
 //Output: 5
