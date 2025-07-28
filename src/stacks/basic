@@ -1,0 +1,9 @@
+#	Problem	Description
+1	Next Greater Element I (LeetCode 496)	Given two arrays, find NGE of one array using the second.
+2	Next Greater Element II (LC 503)	Circular version — wrap around the array.
+3	Next Smaller Element	Like NGE, but find the next smaller element.
+4	Previous Greater Element	Find the previous greater to the left.
+5	Previous Smaller Element	Find previous smaller on the left side.
+6	Nearest Greater to Left / Right	Same as above, with distance index difference.
+7	Next Greater Frequency Element	Element with next higher frequency (not value).
+8	Next Greater Node in Linked List (LC 1019)	Same as NGE, but with linked list instead of array.
