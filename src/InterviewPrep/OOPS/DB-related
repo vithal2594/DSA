@@ -1,0 +1,3 @@
+mysql locking:
+ 1.optimistic pessimistic locking
+hibernate  transaction,indexof

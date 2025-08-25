@@ -1,4 +1,4 @@
-package Prac.basics;
+package basics;
 
 public class overr {
     class test{

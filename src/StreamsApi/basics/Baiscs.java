@@ -33,7 +33,7 @@ public class Baiscs {
         System.out.println(names1.stream().count());
         //6.
         List<String> str = List.of("Aman", "Ban", "OO","Emly", "Ihs","zml");
-        str.stream().filter(s -> !s.isEmpty() && "aeiouAEIOU".indexOf(s.charAt(0)) != -1 ).collect(Collectors.toList()).forEach(System.out::println);
+        str.stream().filter(s -> !s.isEmpty() && "aeiouAEIOU".indexOf(s.charAt(0)) != -1 ).toList().forEach(System.out::println);
 
 // 7.
         List<Double> numsd = List.of(10.5, 25.9,90.78);

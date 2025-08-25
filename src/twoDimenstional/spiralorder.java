@@ -1,10 +1,10 @@
-package Prac.twoDimenstional;
+package twoDimenstional;
 
 import java.util.Scanner;
 
 public class spiralorder {
     public static void main(String[] args) {
-        Scanner sc=  new Scanner(System.in);
+      Scanner sc=  new Scanner(System.in);
       System.out.println("Enter the number of rows");
       int rows=sc.nextInt();
       System.out.println("Enter the number of columns");

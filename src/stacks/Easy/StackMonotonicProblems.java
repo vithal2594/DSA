@@ -13,7 +13,7 @@ public class StackMonotonicProblems {
     // 1. Next Greater Element I – LeetCode 496
     public static int[] nextGreaterElementI(int[] nums1, int[] nums2) {
         Map<Integer, Integer> nge = new HashMap<>();
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int num : nums2) {
             while (!stack.isEmpty() && stack.peek() < num) {
                 nge.put(stack.pop(), num);
@@ -32,7 +32,7 @@ public class StackMonotonicProblems {
         int n = nums.length;
         int[] ans = new int[n];
         Arrays.fill(ans, -1);
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < 2 * n; i++) {
             int num = nums[i % n];
             while (!stack.isEmpty() && nums[stack.peek()] < num) {
@@ -47,7 +47,7 @@ public class StackMonotonicProblems {
     public static int[] nextSmaller(int[] nums) {
         int n = nums.length;
         int[] ans = new int[n];
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = n - 1; i >= 0; i--) {
             while (!stack.isEmpty() && stack.peek() >= nums[i]) {
                 stack.pop();
@@ -62,7 +62,7 @@ public class StackMonotonicProblems {
     public static int[] prevGreater(int[] nums) {
         int n = nums.length;
         int[] ans = new int[n];
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && stack.peek() <= nums[i]) {
                 stack.pop();
@@ -77,7 +77,7 @@ public class StackMonotonicProblems {
     public static int[] prevSmaller(int[] nums) {
         int n = nums.length;
         int[] ans = new int[n];
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && stack.peek() >= nums[i]) {
                 stack.pop();
@@ -92,7 +92,7 @@ public class StackMonotonicProblems {
     public static int[] nearestGreaterRightIndexDiff(int[] nums) {
         int n = nums.length;
         int[] diff = new int[n];
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && nums[stack.peek()] < nums[i]) {
                 diff[stack.peek()] = i - stack.pop();
@@ -109,7 +109,7 @@ public class StackMonotonicProblems {
         int[] ans = new int[n];
         Map<Integer, Integer> freq = new HashMap<>();
         for (int v : nums) freq.put(v, freq.getOrDefault(v, 0) + 1);
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = n - 1; i >= 0; i--) {
             while (!stack.isEmpty() && freq.get(nums[stack.peek()]) <= freq.get(nums[i])) {
                 stack.pop();
@@ -129,7 +129,7 @@ public class StackMonotonicProblems {
         }
         int n = vals.size();
         int[] ans = new int[n];
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && vals.get(stack.peek()) < vals.get(i)) {
                 ans[stack.pop()] = vals.get(i);

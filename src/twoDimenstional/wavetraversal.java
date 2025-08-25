@@ -1,4 +1,4 @@
-package Prac.twoDimenstional;
+package twoDimenstional;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Prac.stream;
+package stream;
 
 import java.time.LocalTime;
 import java.util.*;
@@ -42,11 +42,11 @@ public class StreamCreateDemo {
         Arrays.stream(dArr).max().ifPresent(max -> System.out.println("Max: " + max));
 
         // 9. Array to list
-        List<String> collected = Arrays.stream(arr).collect(Collectors.toList());
+        List<String> collected = Arrays.stream(arr).toList();
         System.out.println("Collected list: " + collected);
 
         // 10. int[] to List<Integer>
-        List<Integer> boxed = Arrays.stream(array).boxed().collect(Collectors.toList());
+        List<Integer> boxed = Arrays.stream(array).boxed().toList();
         System.out.println("Boxed list: " + boxed);
 
         // 11. Stream.of to Set
@@ -82,7 +82,7 @@ public class StreamCreateDemo {
         Stream.generate(() -> "Hello").limit(10).forEach(System.out::println);
 
         // 21. UUIDs
-        List<UUID> uuids = Stream.generate(UUID::randomUUID).limit(3).collect(Collectors.toList());
+        List<UUID> uuids = Stream.generate(UUID::randomUUID).limit(3).toList();
         System.out.println("UUIDs: " + uuids);
 
         // 22. Current time
@@ -116,7 +116,7 @@ public class StreamCreateDemo {
         data.stream().flatMap(Arrays::stream).forEach(System.out::println);
 
         // 30. IntStream range to list
-        List<Integer> rangeList = IntStream.range(1, 6).boxed().collect(Collectors.toList());
+        List<Integer> rangeList = IntStream.range(1, 6).boxed().toList();
         System.out.println("Range List: " + rangeList);
     }
 
