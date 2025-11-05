@@ -1,0 +1,463 @@
+"""
+📘 Inheritance in Java - Complete Guide
+==================================================
+
+1. What is Inheritance?
+--------------------------------------------------
+Inheritance allows one class (child/subclass) to acquire properties and behaviors of another class (parent/superclass).
+It helps in reusability of code and establishes a parent-child relationship.
+
+Example:
+--------------------------------------------------
+class Animal {
+    void eat() {
+        System.out.println("Animal eats food.");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.eat();   // Inherited from Animal
+        dog.bark();  // Child’s own method
+    }
+}
+
+Explanation:
+1. 'Dog' inherits from 'Animal' using 'extends' keyword.
+2. 'Dog' can access both its own and parent methods.
+3. Promotes code reusability and logical hierarchy.
+4. Supports polymorphism when parent reference holds child object.
+
+--------------------------------------------------
+
+2. Why Inheritance is Important (10 Pointers)
+--------------------------------------------------
+1. Promotes code reuse.
+2. Reduces redundancy.
+3. Supports hierarchical organization.
+4. Enables method overriding.
+5. Simplifies code maintenance.
+6. Encourages modular design.
+7. Facilitates extensibility.
+8. Encourages DRY (Don't Repeat Yourself) principle.
+9. Helps achieve polymorphism.
+10. Reduces overall code complexity.
+
+--------------------------------------------------
+
+3. Key Concepts of Inheritance
+--------------------------------------------------
+
+a) Parent (Super) Class
+class Parent {
+    void showParent() {
+        System.out.println("This is the parent class.");
+    }
+}
+
+b) Child (Sub) Class
+class Child extends Parent {
+    void showChild() {
+        System.out.println("This is the child class.");
+    }
+}
+
+Pointers:
+1. Parent class provides base structure.
+2. Child inherits features and adds its own.
+3. Achieved using 'extends' keyword.
+
+c) extends Keyword
+Used to define inheritance relationship.
+Example: class Child extends Parent {}
+
+d) super Keyword
+Used to call parent class methods/constructors.
+Example shown later.
+
+e) Method Overriding
+When child redefines parent method with same signature.
+
+f) Constructor Chaining
+Parent constructor called before child constructor.
+
+g) Upcasting
+Parent reference holding child object.
+
+Example:
+Parent p = new Child();
+
+--------------------------------------------------
+
+4. Types of Inheritance in Java (with Examples)
+--------------------------------------------------
+
+A. Single Inheritance
+--------------------------------------------------
+class Vehicle {
+    void start() { System.out.println("Vehicle starts."); }
+}
+
+class Car extends Vehicle {
+    void drive() { System.out.println("Car drives."); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();
+        car.drive();
+    }
+}
+
+Pointers:
+1. One class inherits another.
+2. Simplest form of inheritance.
+3. Enables code reuse.
+4. Forms base for other types.
+5. Common in real-world systems.
+
+--------------------------------------------------
+
+B. Multilevel Inheritance
+--------------------------------------------------
+class Animal {
+    void eat() { System.out.println("Eating..."); }
+}
+class Mammal extends Animal {
+    void walk() { System.out.println("Walking..."); }
+}
+class Dog extends Mammal {
+    void bark() { System.out.println("Barking..."); }
+}
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();
+        d.walk();
+        d.bark();
+    }
+}
+
+Pointers:
+1. Chain of inheritance (Animal → Mammal → Dog).
+2. Shows hierarchy in multiple levels.
+3. Parent of one can be child of another.
+
+--------------------------------------------------
+
+C. Hierarchical Inheritance
+--------------------------------------------------
+class Shape {
+    void draw() { System.out.println("Drawing shape..."); }
+}
+
+class Circle extends Shape {
+    void area() { System.out.println("Area of Circle"); }
+}
+
+class Rectangle extends Shape {
+    void area() { System.out.println("Area of Rectangle"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circle c = new Circle();
+        Rectangle r = new Rectangle();
+        c.draw();
+        r.draw();
+    }
+}
+
+Pointers:
+1. Multiple subclasses share same parent.
+2. Common behavior defined in parent.
+3. Promotes reusability across children.
+
+--------------------------------------------------
+
+D. Multiple Inheritance (via Interfaces)
+--------------------------------------------------
+interface A {
+    void methodA();
+}
+interface B {
+    void methodB();
+}
+class C implements A, B {
+    public void methodA() { System.out.println("Method A"); }
+    public void methodB() { System.out.println("Method B"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.methodA();
+        obj.methodB();
+    }
+}
+
+Pointers:
+1. Achieved using interfaces.
+2. Avoids ambiguity.
+3. Java disallows multiple class inheritance but allows multiple interfaces.
+
+--------------------------------------------------
+
+5. Constructor Chaining Example
+--------------------------------------------------
+class Parent {
+    Parent() { System.out.println("Parent Constructor"); }
+}
+
+class Child extends Parent {
+    Child() {
+        super(); // calls Parent constructor
+        System.out.println("Child Constructor");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new Child();
+    }
+}
+
+Output:
+Parent Constructor
+Child Constructor
+
+Pointers:
+1. Parent constructor executes first.
+2. Ensures initialization order.
+3. Maintains construction hierarchy.
+
+--------------------------------------------------
+
+6. Method Overriding in Inheritance
+--------------------------------------------------
+class Animal {
+    void sound() { System.out.println("Animal makes sound."); }
+}
+class Dog extends Animal {
+    @Override
+    void sound() { System.out.println("Dog barks."); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal obj = new Dog();
+        obj.sound();
+    }
+}
+
+Pointers:
+1. Same method name/signature.
+2. Executes child's version.
+3. Enables runtime polymorphism.
+4. Marked using @Override.
+
+--------------------------------------------------
+
+7. The super Keyword in Inheritance
+--------------------------------------------------
+class Parent {
+    int num = 100;
+    void display() {
+        System.out.println("Parent display()");
+    }
+}
+
+class Child extends Parent {
+    int num = 200;
+    void display() {
+        super.display();
+        System.out.println("Parent num: " + super.num);
+        System.out.println("Child num: " + num);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.display();
+    }
+}
+
+Pointers:
+1. super calls parent constructor.
+2. Accesses parent fields/methods.
+3. Resolves naming conflicts.
+4. Must be first in constructor.
+5. Cannot access grandparent directly.
+6. Enhances reusability.
+7. Allows partial overriding.
+8. Common in polymorphism.
+9. Improves clarity in hierarchy.
+10. Ensures parent initialization.
+
+--------------------------------------------------
+
+8. Inheritance and Access Modifiers
+--------------------------------------------------
+| Modifier | Inherited? | Notes |
+|-----------|-------------|--------|
+| private | ❌ No | Hidden from subclass |
+| default | ✅ same package | Package-level inheritance |
+| protected | ✅ subclass | Accessible to subclass |
+| public | ✅ Yes | Fully accessible |
+
+--------------------------------------------------
+
+9. Advantages of Inheritance
+--------------------------------------------------
+1. Code reuse.
+2. Reduces redundancy.
+3. Enables polymorphism.
+4. Simplifies maintenance.
+5. Promotes modularity.
+6. Encourages clean hierarchy.
+7. Improves readability.
+8. Enhances productivity.
+9. Supports abstraction.
+10. Easier to extend behavior.
+
+--------------------------------------------------
+
+10. Disadvantages of Inheritance
+--------------------------------------------------
+1. Tight coupling between classes.
+2. Parent changes affect children.
+3. Complex debugging.
+4. Reduces encapsulation.
+5. Misuse leads to fragile code.
+6. Can reduce flexibility.
+7. Hard to track dependencies.
+
+--------------------------------------------------
+
+11. IS-A vs HAS-A Relationship
+--------------------------------------------------
+| Type | Relationship | Example |
+|------|--------------|----------|
+| IS-A | Inheritance | Dog IS-A Animal |
+| HAS-A | Composition | Car HAS-A Engine |
+
+--------------------------------------------------
+
+12. Final Keyword in Inheritance
+--------------------------------------------------
+Usage Types:
+--------------------------------------------------
+A) final class
+final class Vehicle {}
+// class Car extends Vehicle {} // ❌ Error
+
+Pointers:
+1. Prevents inheritance.
+2. Used for security-sensitive classes.
+3. Common in utility classes.
+
+B) final method
+class Parent {
+    final void display() { System.out.println("Fixed behavior."); }
+}
+class Child extends Parent {
+    // void display() {} // ❌ Error
+}
+
+Pointers:
+1. Prevents overriding.
+2. Used for fixed implementation.
+3. Provides consistency.
+
+C) final variable
+final int SPEED = 100;
+
+Pointers:
+1. Declares constant.
+2. Must be initialized once.
+3. Value cannot change.
+
+--------------------------------------------------
+
+13. Real-World Example of Inheritance
+--------------------------------------------------
+class Employee {
+    String name;
+    double salary;
+
+    void work() { System.out.println(name + " works."); }
+}
+
+class Manager extends Employee {
+    void manage() { System.out.println(name + " manages the team."); }
+}
+
+class Developer extends Employee {
+    void code() { System.out.println(name + " writes code."); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Manager m = new Manager();
+        m.name = "Alice";
+        m.work();
+        m.manage();
+
+        Developer d = new Developer();
+        d.name = "Bob";
+        d.work();
+        d.code();
+    }
+}
+
+Explanation:
+1. Employee is parent class.
+2. Manager and Developer inherit from it.
+3. Each subclass adds unique functionality.
+4. Common attributes reused.
+
+--------------------------------------------------
+
+14. Rules for Inheritance in Java
+--------------------------------------------------
+1. Use extends to inherit a class.
+2. Constructors are not inherited.
+3. Private members are hidden.
+4. Single inheritance for classes only.
+5. Multiple inheritance allowed via interfaces.
+6. Use super() in constructors.
+7. Child can override non-final methods.
+8. Static methods not overridden.
+9. Parent reference can point to child.
+10. Prefer composition for flexibility.
+
+--------------------------------------------------
+
+15. Difference Between Inheritance and Composition
+--------------------------------------------------
+| Feature | Inheritance | Composition |
+|----------|--------------|--------------|
+| Relationship | IS-A | HAS-A |
+| Reuse | Through extension | Through delegation |
+| Coupling | Tight | Loose |
+| Flexibility | Low | High |
+| Example | Dog extends Animal | Car has Engine |
+| Preferred | When true hierarchy exists | For code flexibility |
+
+==================================================
+✅ Summary:
+- Inheritance provides code reusability and hierarchy.
+- Enables polymorphism and method overriding.
+- Achieved using 'extends' and 'implements'.
+- Use wisely to avoid tight coupling.
+==================================================
+"""

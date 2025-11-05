@@ -1,0 +1,262 @@
+
+1. WHAT IS A CLASS IN JAVA?
+---------------------------
+Definition:
+A class in Java is a blueprint or template that defines the properties (variables) and behaviors (methods) of objects.
+
+Code Example:
+// Example of a simple class
+public class Car {
+    // Fields / variables
+    String color;
+    String model;
+    int speed;
+
+    // Method to display details
+    void displayInfo() {
+        System.out.println("Car Model: " + model + ", Color: " + color + ", Speed: " + speed);
+    }
+}
+
+---------------------------------------------
+2. CORE PARTS OF A CLASS
+---------------------------------------------
+Definition:
+Core parts include variables (fields), methods, constructors, blocks, and nested classes.
+
+Code Example:
+// Example showing different parts of a class
+public class Student {
+    // Field (variable)
+    String name;
+    int age;
+
+    // Constructor
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method
+    public void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+
+    // Initialization block
+    { System.out.println("Student object created!"); }
+}
+
+Pointers:
+1. Fields hold data for the object.
+2. Methods define behavior.
+3. Constructors initialize data.
+4. Blocks can execute setup logic.
+5. Classes can contain other nested classes.
+
+---------------------------------------------
+3. TYPES OF CLASSES IN JAVA
+---------------------------------------------
+Definition:
+Java supports multiple class types depending on purpose and usage.
+
+Code Examples:
+// Concrete class
+public class Dog {
+    void bark() { System.out.println("Bark"); }
+}
+
+// Abstract class
+abstract class Animal {
+    abstract void sound();
+}
+
+// Interface
+interface Flyable {
+    void fly();
+}
+
+// Final class
+final class Constants { }
+
+// Static nested class
+class Outer {
+    static class Inner {
+        void show() { System.out.println("Static Nested Class"); }
+    }
+}
+
+Pointers:
+1. Concrete classes can be instantiated.
+2. Abstract classes serve as templates for subclasses.
+3. Interfaces define contracts (only method declarations).
+4. Final classes cannot be inherited.
+5. Static nested classes belong to the outer class, not an instance.
+6. Inner classes are tied to the outer class instance.
+7. Local and anonymous classes exist inside methods.
+
+---------------------------------------------
+4. ACCESS MODIFIERS
+---------------------------------------------
+Definition:
+Access modifiers control visibility of classes, methods, and variables.
+
+Code Example:
+public class Employee {
+    public String name; // accessible everywhere
+    protected int id;   // same package + subclasses
+    String dept;        // default, same package only
+    private double salary; // only inside this class
+}
+
+Pointers:
+1. public: accessible everywhere.
+2. protected: accessible in same package and by subclasses.
+3. default: accessible only within the same package.
+4. private: accessible only within the same class.
+5. Good practice is to keep fields private and use getters/setters.
+
+---------------------------------------------
+5. NON-ACCESS MODIFIERS
+---------------------------------------------
+Definition:
+These modifiers change behavior of methods, variables, and classes (not visibility).
+
+Code Example:
+public class Example {
+    static int count = 0;        // shared across all objects
+    final int MAX_VALUE = 100;   // constant
+    transient int tempData;      // not saved during serialization
+    volatile boolean flag;       // updated by multiple threads
+    synchronized void print() {  // thread-safe method
+        System.out.println("Thread-safe print");
+    }
+}
+
+Pointers:
+1. static: belongs to class, not instance.
+2. final: cannot be changed or overridden.
+3. abstract: must be implemented by subclasses.
+4. synchronized: thread-safe method or block.
+5. transient: excluded from serialization.
+6. volatile: ensures visibility of variable across threads.
+
+---------------------------------------------
+6. STATIC VS INSTANCE MEMBERS
+---------------------------------------------
+Definition:
+Static members belong to the class, while instance members belong to specific objects.
+
+Code Example:
+public class Counter {
+    static int totalObjects = 0; // shared among all
+    int id;                      // unique per object
+
+    Counter() {
+        totalObjects++;
+        id = totalObjects;
+    }
+}
+
+Pointers:
+1. static variables/methods belong to class.
+2. instance variables/methods belong to objects.
+3. static members can be accessed using class name.
+4. instance members require object reference.
+5. static blocks execute once per class load.
+
+---------------------------------------------
+7. CONSTRUCTORS AND THEIR TYPES
+---------------------------------------------
+Definition:
+Constructors initialize new objects when created.
+
+Code Example:
+public class Person {
+    String name;
+    int age;
+
+    // Default constructor
+    public Person() {
+        name = "Unknown";
+        age = 0;
+    }
+
+    // Parameterized constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Copy constructor (manually created)
+    public Person(Person p) {
+        this.name = p.name;
+        this.age = p.age;
+    }
+}
+
+Pointers:
+1. Constructors have same name as class.
+2. No return type.
+3. Default constructor is auto-generated if none is defined.
+4. Parameterized constructors allow initialization with values.
+5. Copy constructors create a new object from another.
+6. Overloading allows multiple constructors with different parameters.
+
+---------------------------------------------
+8. THIS AND SUPER KEYWORDS
+---------------------------------------------
+Definition:
+Used for referencing current and parent class members.
+
+Code Example:
+class Vehicle {
+    int speed = 100;
+}
+
+class Car extends Vehicle {
+    int speed = 150;
+
+    Car() {
+        System.out.println("This speed: " + this.speed); // refers to current class
+        System.out.println("Super speed: " + super.speed); // refers to parent class
+    }
+}
+
+Pointers:
+1. 'this' refers to current object.
+2. 'super' refers to parent class.
+3. 'this()' can call another constructor in the same class.
+4. 'super()' calls parent class constructor.
+5. Used to resolve variable/method conflicts.
+6. Enhances code clarity and reusability.
+
+---------------------------------------------
+9. IMMUTABILITY AND FINAL CLASSES
+---------------------------------------------
+Definition:
+Immutable classes cannot be modified after creation. 'final' classes cannot be inherited.
+
+Code Example:
+// Immutable and final class example
+public final class Person {
+    private final String name;
+    private final int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() { return name; }
+    public int getAge() { return age; }
+}
+
+Pointers:
+1. final class cannot be subclassed.
+2. final variables can only be assigned once.
+3. Immutable objects prevent modification after creation.
+4. Ensures thread safety.
+5. Improves reliability in concurrent programs.
+6. Common examples: String, Integer, etc.
+7. Immutable objects simplify caching and debugging.
+"""

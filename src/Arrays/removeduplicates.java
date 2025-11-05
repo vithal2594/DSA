@@ -1,4 +1,4 @@
-// Remove duplicate element from a list (Use Stream API)
+package Arrays;// Remove duplicate element from a list (Use Stream API)
 // input - 1,2,2,3,3,3,4,5,5,6
 // output - 1,4,6
 

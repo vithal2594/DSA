@@ -1,0 +1,279 @@
+OBJECTS IN JAVA - COMPLETE GUIDE
+================================
+
+1. WHAT IS AN OBJECT IN JAVA?
+-----------------------------
+Definition:
+An object is a real-world entity or an instance of a class. It represents a specific example created from a class template.
+
+Code Example:
+// Class definition
+public class Car {
+    String color;
+    String model;
+    int speed;
+
+    void start() {
+        System.out.println(model + " is starting...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating object of Car
+        Car car1 = new Car(); // car1 is an object (instance)
+        car1.color = "Red";
+        car1.model = "Tesla";
+        car1.speed = 120;
+
+        // Calling method
+        car1.start(); // Output: Tesla is starting...
+    }
+}
+
+Pointers:
+1. An object is an instance of a class.
+2. It contains data (fields) and methods.
+3. Objects occupy memory when created.
+4. Objects are created at runtime.
+5. They represent real-world entities.
+6. Multiple objects can exist from one class.
+7. Objects interact using methods.
+8. Everything (except primitives) in Java is an object.
+9. Classes are blueprints; objects are real instances.
+10. Objects enable OOP principles like inheritance and encapsulation.
+
+
+2. CHARACTERISTICS OF AN OBJECT
+-------------------------------
+Objects in Java have three main characteristics:
+
+Code Example:
+// Example demonstrating characteristics
+public class Student {
+    String name; // State (data)
+    int marks;   // State (data)
+
+    void study() { // Behavior (action)
+        System.out.println(name + " is studying...");
+    }
+}
+
+Pointers:
+1. **State:** Data or attributes of the object (e.g., name, marks).
+2. **Behavior:** Methods or actions the object can perform.
+3. **Identity:** Each object has a unique memory address.
+4. State represents what the object “has”.
+5. Behavior represents what the object “does”.
+6. Identity allows JVM to distinguish objects.
+7. Even if data is same, two objects have different identities.
+8. JVM handles identity internally using references.
+
+ASCII Visualization:
+--------------------
+        +----------------+
+        |   Student Obj  |
+        |----------------|
+        | name: "Alice"  |
+        | marks: 90      |
+        |----------------|
+        | study()        |
+        +----------------+
+
+
+3. CREATING OBJECTS IN JAVA
+---------------------------
+There are multiple ways to create objects.
+
+(a) Using 'new' keyword (most common)
+------------------------------------
+Car car1 = new Car();
+
+(b) Using Class.forName() (Reflection)
+--------------------------------------
+Car car2 = (Car) Class.forName("Car").newInstance();
+
+(c) Using clone()
+-----------------
+Car car3 = (Car) car1.clone();
+
+(d) Using Deserialization
+-------------------------
+ObjectInputStream in = new ObjectInputStream(new FileInputStream("data.obj"));
+Car car4 = (Car) in.readObject();
+
+(e) Using Factory Methods
+-------------------------
+Car car5 = CarFactory.createCar("BMW");
+
+Pointers:
+1. The ‘new’ keyword is the simplest method.
+2. Reflection allows dynamic object creation.
+3. Cloning copies an existing object.
+4. Deserialization recreates object from stored data.
+5. Factory methods centralize object creation.
+6. All objects are stored in heap memory.
+7. The constructor initializes the object after creation.
+8. Objects are referenced by variables.
+
+
+4. OBJECT LIFECYCLE IN JAVA
+---------------------------
+Stages of object lifecycle:
+1. Creation – Object is created using ‘new’.
+2. Usage – Object methods and fields are accessed.
+3. Unreachable – No reference points to it.
+4. Destruction – JVM removes it via Garbage Collector.
+
+Code Example:
+--------------
+Car c = new Car(); // Created
+c.start();         // In use
+c = null;          // Unreachable → eligible for GC
+
+ASCII Flow:
+------------
+[Creation] → [In Use] → [Unreachable] → [Garbage Collected]
+
+Pointers:
+1. Java automatically manages memory.
+2. Developers cannot explicitly delete objects.
+3. GC runs periodically.
+4. finalize() can execute before deletion (deprecated).
+5. Unused objects free heap memory.
+6. Object lifecycle ensures efficiency and safety.
+
+
+5. ACCESSING OBJECT MEMBERS
+---------------------------
+Code Example:
+// Class with fields and methods
+public class Car {
+    String color;
+    int speed;
+
+    void accelerate() {
+        speed += 10;
+        System.out.println("Speed: " + speed);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.color = "Blue";  // Accessing field
+        myCar.accelerate();    // Accessing method
+    }
+}
+
+Pointers:
+1. The dot (.) operator is used to access members.
+2. Syntax: objectName.field or objectName.method().
+3. Private members require getters/setters.
+4. Each object has its own copy of instance variables.
+5. Static members are accessed by class name, not object.
+6. Objects store data separately, even if same class.
+
+
+6. SHALLOW COPY VS DEEP COPY OF OBJECTS
+---------------------------------------
+Code Example (Shallow Copy):
+----------------------------
+public class Car {
+    String model;
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        car1.model = "Tesla";
+
+        Car car2 = car1; // Shallow copy (same reference)
+        car2.model = "BMW";
+
+        System.out.println(car1.model); // Output: BMW (both same object)
+    }
+}
+
+Code Example (Deep Copy):
+-------------------------
+public class Car {
+    String model;
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        car1.model = "Tesla";
+
+        Car car2 = new Car(); // new object
+        car2.model = car1.model; // Copy data manually
+
+        car2.model = "BMW";
+        System.out.println(car1.model); // Output: Tesla (different objects)
+    }
+}
+
+ASCII Diagram:
+--------------
+Shallow Copy:
+   car1 ----> [Car: model="BMW"]
+   car2 ----> [same memory address]
+
+Deep Copy:
+   car1 ----> [Car: model="Tesla"]
+   car2 ----> [Car: model="BMW"]
+
+Pointers:
+1. Shallow copy shares same reference.
+2. Deep copy creates independent copy.
+3. Modifying one shallow copy affects the other.
+4. Deep copy prevents side effects.
+5. clone() by default performs shallow copy.
+6. Deep copy needs manual data duplication.
+
+
+7. GARBAGE COLLECTION
+---------------------
+Definition:
+Java automatically removes unused objects from memory using Garbage Collector (GC).
+
+Code Example:
+--------------
+public class Demo {
+    public void finalize() {
+        System.out.println("Object destroyed!");
+    }
+
+    public static void main(String[] args) {
+        Demo d1 = new Demo();
+        d1 = null;
+        System.gc(); // Request GC
+    }
+}
+
+Pointers:
+1. GC reclaims memory from unreachable objects.
+2. finalize() is called before deletion (deprecated).
+3. Manual memory management is not needed in Java.
+4. GC improves efficiency and prevents leaks.
+5. Objects with no reference are candidates for GC.
+6. GC can’t be forced; only suggested with System.gc().
+
+
+8. KEY NOTES ON OBJECTS
+-----------------------
+1. Objects are instances of classes.
+2. They occupy memory in the heap.
+3. Every object has its own data (state).
+4. Methods define object behavior.
+5. Objects interact through method calls.
+6. References are stored in stack memory.
+7. Java manages objects automatically.
+8. Garbage Collection ensures memory safety.
+9. All Java objects inherit from java.lang.Object.
+10. Objects enable modular and reusable programming.
+
+-----------------------------------------------
+END OF FILE
+-----------------------------------------------

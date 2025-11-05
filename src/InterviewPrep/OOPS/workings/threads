@@ -1,0 +1,309 @@
+from pathlib import Path
+
+# Define the full detailed text content for Threads in Java (with internal working)
+threads_content = """\
+🧩 THREADS IN JAVA — COMPLETE GUIDE (With Internal Working)
+============================================================
+
+1️⃣ WHAT IS A THREAD IN JAVA
+------------------------------------------------------------
+A thread is the smallest independent unit of execution within a Java program.
+Every Java program starts with at least one thread: the main thread.
+
+Example:
+------------------------------------------------------------
+public class Example {
+    public static void main(String[] args) {
+        System.out.println(Thread.currentThread().getName()); // main
+    }
+}
+
+Output:
+main
+
+Key Points:
+------------------------------------------------------------
+1. Thread = lightweight sub-process
+2. Java threads share process memory
+3. Managed by JVM + OS Thread Scheduler
+4. Enable parallel or concurrent execution
+5. Improve performance on multi-core CPUs
+6. Useful in real-time systems (servers, UIs, etc.)
+7. Controlled by java.lang.Thread class
+8. Each thread has its own call stack but shares heap memory
+
+============================================================
+
+2️⃣ INTERNAL WORKING OF THREADS
+------------------------------------------------------------
+Step-by-step Thread Lifecycle Internals:
+------------------------------------------------------------
+1. Thread Object Created:
+   When a Thread object is created, JVM allocates heap memory for it.
+   Thread t = new Thread();
+   ➜ Thread state = NEW
+
+2. start() Called:
+   JVM invokes a native method start0() (written in C using JNI).
+   OS Thread Scheduler creates a native thread.
+   ➜ OS thread gets stack, program counter, and registers.
+
+3. Thread Registered with JVM:
+   JVM maps Java Thread object to native thread handle.
+
+4. OS Scheduler Takes Over:
+   OS decides which thread to execute based on CPU time slices.
+
+5. run() Executes:
+   JVM calls run() method in new thread context.
+
+6. Thread Suspension / Sleep / Wait:
+   When sleep(), wait(), or join() is called → thread enters WAITING state.
+
+7. Context Switching:
+   OS saves current thread context and loads another thread’s context.
+
+8. Thread Termination:
+   When run() completes → thread marked TERMINATED, native resources freed.
+
+JVM Data Sharing Model:
+------------------------------------------------------------
+| Memory Area | Shared by Threads? | Example |
+|--------------|--------------------|----------|
+| Heap         | Yes                | Objects, static vars |
+| Stack        | No                 | Local variables |
+| Method Area  | Yes                | Class metadata |
+| PC Register  | No                 | Instruction pointer |
+
+============================================================
+
+3️⃣ CREATING THREADS
+------------------------------------------------------------
+A. Extending Thread class:
+------------------------------------------------------------
+class Worker extends Thread {
+    public void run() {
+        System.out.println("Thread: " + Thread.currentThread().getName());
+    }
+}
+public class Test {
+    public static void main(String[] args) {
+        new Worker().start();
+    }
+}
+
+B. Implementing Runnable:
+------------------------------------------------------------
+class Task implements Runnable {
+    public void run() {
+        System.out.println("Runnable running on: " + Thread.currentThread().getName());
+    }
+}
+public class Demo {
+    public static void main(String[] args) {
+        Thread t = new Thread(new Task());
+        t.start();
+    }
+}
+
+C. Using Lambda:
+------------------------------------------------------------
+new Thread(() -> System.out.println("Lambda Thread")).start();
+
+============================================================
+
+4️⃣ THREAD LIFECYCLE
+------------------------------------------------------------
+| State | Description |
+|--------|-------------|
+| NEW | Created but not started |
+| RUNNABLE | Ready or running |
+| BLOCKED | Waiting for lock |
+| WAITING | Waiting indefinitely |
+| TIMED_WAITING | Waiting temporarily |
+| TERMINATED | Completed execution |
+
+============================================================
+
+5️⃣ THREAD SCHEDULING
+------------------------------------------------------------
+- Controlled by JVM + OS Thread Scheduler.
+- Uses preemptive or time-slicing scheduling.
+
+setPriority(int level); // 1–10
+⚠️ Scheduling behavior depends on OS.
+
+============================================================
+
+6️⃣ THREAD METHODS AND INTERNAL WORKING
+------------------------------------------------------------
+| Method | Internal Behavior |
+|---------|------------------|
+| start() | Creates native thread via start0() |
+| run() | Executes user-defined logic |
+| sleep(ms) | Suspends thread temporarily |
+| join() | Waits until thread finishes |
+| interrupt() | Sets interrupt flag |
+| yield() | Suggests scheduler switch |
+| isAlive() | Checks if running |
+
+============================================================
+
+7️⃣ SYNCHRONIZATION AND MEMORY MODEL
+------------------------------------------------------------
+class Counter {
+    private int count = 0;
+    public synchronized void increment() { count++; }
+    public int getCount() { return count; }
+}
+
+Internally:
+- Each object has a monitor (lock).
+- synchronized acquires monitor → single-thread access.
+- Implemented via MonitorEnter and MonitorExit bytecodes.
+
+============================================================
+
+8️⃣ THREAD COMMUNICATION (wait / notify)
+------------------------------------------------------------
+class Shared {
+    synchronized void waitForSignal() throws InterruptedException {
+        wait(); // releases lock
+    }
+    synchronized void sendSignal() {
+        notify(); // wakes one waiting thread
+    }
+}
+⚠️ Must be inside synchronized blocks.
+
+============================================================
+
+9️⃣ DAEMON THREADS
+------------------------------------------------------------
+Thread t = new Thread(() -> System.out.println("Daemon"));
+t.setDaemon(true);
+t.start();
+Daemon threads terminate automatically when all user threads end.
+
+============================================================
+
+10️⃣ THREAD POOLS (EXECUTOR FRAMEWORK)
+------------------------------------------------------------
+ExecutorService pool = Executors.newFixedThreadPool(3);
+pool.submit(() -> System.out.println("Task running"));
+pool.shutdown();
+
+Internally:
+- Maintains task queue
+- Reuses threads
+- Reduces overhead
+
+============================================================
+
+11️⃣ THREAD SAFETY & MEMORY VISIBILITY
+------------------------------------------------------------
+volatile boolean flag = true;
+Ensures changes visible across threads.
+
+============================================================
+
+12️⃣ INTERNAL JVM COMPONENTS FOR THREADING
+------------------------------------------------------------
+| Component | Role |
+|------------|------|
+| Thread Scheduler | CPU allocation |
+| Monitor | Lock mechanism |
+| Heap | Shared memory |
+| Stack | Per-thread execution |
+| PC Register | Tracks current bytecode |
+| JNI | Connects to OS threads |
+| Thread Table | Stores thread metadata |
+
+============================================================
+
+13️⃣ CONTEXT SWITCHING
+------------------------------------------------------------
+- OS saves registers and stack pointer.
+- Loads another thread’s state.
+- Fast but adds CPU overhead.
+
+============================================================
+
+14️⃣ COMMON THREAD PROBLEMS
+------------------------------------------------------------
+| Problem | Description |
+|----------|-------------|
+| Race Condition | Shared data conflict |
+| Deadlock | Threads wait forever |
+| Starvation | Low-priority threads ignored |
+| Livelock | Threads active but stuck |
+
+============================================================
+
+15️⃣ ADVANTAGES
+------------------------------------------------------------
+✅ Parallel execution
+✅ Efficient CPU usage
+✅ Non-blocking tasks
+✅ Scalability
+✅ Responsiveness
+
+============================================================
+
+16️⃣ DISADVANTAGES
+------------------------------------------------------------
+❌ Complex debugging
+❌ Deadlocks possible
+❌ Synchronization overhead
+❌ Unpredictable scheduling
+
+============================================================
+
+17️⃣ REAL-WORLD ANALOGY
+------------------------------------------------------------
+Threads = waiters in restaurant
+Kitchen = shared resource
+Manager = scheduler
+Lock = one waiter uses kitchen at a time
+
+============================================================
+
+18️⃣ BEST PRACTICES
+------------------------------------------------------------
+✅ Prefer Executors over manual threads
+✅ Avoid shared mutable data
+✅ Use synchronized or Locks properly
+✅ Handle InterruptedException
+✅ Avoid blocking daemon threads
+
+============================================================
+
+19️⃣ SUMMARY TABLE
+------------------------------------------------------------
+| Concept | Description |
+|----------|--------------|
+| Thread | Unit of execution |
+| Scheduler | CPU allocation |
+| start() | Begin thread execution |
+| run() | Thread logic |
+| synchronized | Atomic access |
+| volatile | Ensures visibility |
+| join(), sleep() | Control flow |
+| ExecutorService | Thread pooling |
+| Daemon Thread | Background service |
+| Context Switch | Thread swapping |
+
+============================================================
+
+20️⃣ KEY TAKEAWAYS
+------------------------------------------------------------
+Threads enable parallelism and concurrency.
+Understand lifecycle, synchronization, and scheduling to write
+safe, scalable, and performant Java applications.
+"""
+
+# Create and save the text file
+file_path = Path("/mnt/data/threads_in_java_with_internal_working.txt")
+file_path.write_text(threads_content)
+
+file_path

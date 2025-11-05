@@ -1,0 +1,231 @@
+📘 EQUALS() IN JAVA – COMPLETE GUIDE
+============================================================
+
+1️⃣ WHAT IS equals() IN JAVA
+------------------------------------------------------------
+The `equals()` method is used to compare two objects for logical equality (same content).
+By default, it is inherited from `java.lang.Object`.
+
+Default implementation:
+------------------------------------------------------------
+public class Object {
+    public boolean equals(Object obj) {
+        return (this == obj);
+    }
+}
+⚙️  It compares memory addresses (reference equality), not the data inside.
+
+============================================================
+
+2️⃣ WHY OVERRIDE equals()
+------------------------------------------------------------
+- To compare object data, not memory addresses.
+- Example: Two `Person` objects with same `id` and `name` should be equal.
+
+CODE EXAMPLE:
+------------------------------------------------------------
+class Person {
+    int id;
+    String name;
+
+    Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public static void main(String[] args) {
+        Person p1 = new Person(1, "Alice");
+        Person p2 = new Person(1, "Alice");
+        System.out.println(p1.equals(p2)); // false - different references
+    }
+}
+============================================================
+
+3️⃣ INTERNAL WORKING (DEFAULT)
+------------------------------------------------------------
+1. `equals()` checks if both references point to same object (this == obj)
+2. If yes → returns true
+3. If no → returns false
+✅  No field comparison is done by default.
+
+============================================================
+
+4️⃣ OVERRIDING equals() PROPERLY
+------------------------------------------------------------
+class Person {
+    int id;
+    String name;
+
+    Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        // 1. Same reference
+        if (this == obj) return true;
+
+        // 2. Null check
+        if (obj == null) return false;
+
+        // 3. Type check
+        if (getClass() != obj.getClass()) return false;
+
+        // 4. Typecast
+        Person other = (Person) obj;
+
+        // 5. Compare fields
+        return this.id == other.id && this.name.equals(other.name);
+    }
+
+    public static void main(String[] args) {
+        Person p1 = new Person(101, "Alice");
+        Person p2 = new Person(101, "Alice");
+        System.out.println(p1.equals(p2)); // true
+    }
+}
+
+============================================================
+
+5️⃣ JAVA CONTRACT FOR equals()
+------------------------------------------------------------
+The equals() method must obey these five rules:
+
+| Rule | Meaning |
+|------|----------|
+| Reflexive | x.equals(x) → true |
+| Symmetric | if x.equals(y) → y.equals(x) |
+| Transitive | if x.equals(y) & y.equals(z) → x.equals(z) |
+| Consistent | repeated calls → same result |
+| Non-null | x.equals(null) → false |
+
+============================================================
+
+6️⃣ RELATIONSHIP WITH hashCode()
+------------------------------------------------------------
+Objects that are equal must have the same hash code.
+
+@Override
+public int hashCode() {
+    return Objects.hash(id, name);
+}
+
+Person p1 = new Person(1, "Alice");
+Person p2 = new Person(1, "Alice");
+
+System.out.println(p1.equals(p2));             // true
+System.out.println(p1.hashCode() == p2.hashCode()); // true
+
+============================================================
+
+7️⃣ COMMON MISTAKES
+------------------------------------------------------------
+❌ Not overriding hashCode() when equals() is overridden
+❌ Comparing Strings with ==
+❌ Forgetting null checks
+❌ Violating symmetry or transitivity
+❌ Comparing objects of different classes
+
+============================================================
+
+8️⃣ USING Objects.equals() (NULL-SAFE)
+------------------------------------------------------------
+@Override
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (!(obj instanceof Person)) return false;
+    Person other = (Person) obj;
+    return id == other.id && Objects.equals(name, other.name);
+}
+✅ Avoids NullPointerException
+
+============================================================
+
+9️⃣ EXAMPLE: LOGICAL EQUALITY IN HASHSET
+------------------------------------------------------------
+import java.util.*;
+
+class Student {
+    int id;
+    String name;
+
+    Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        Student s = (Student) o;
+        return id == s.id && Objects.equals(name, s.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet<Student> set = new HashSet<>();
+        set.add(new Student(1, "Ravi"));
+        set.add(new Student(1, "Ravi"));
+        System.out.println(set.size());  // Output: 1
+    }
+}
+
+============================================================
+
+🔟 INTERNAL WORKING OF equals() IN COLLECTIONS
+------------------------------------------------------------
+1. Calculate hashCode() → find correct bucket
+2. If collision → compare using equals()
+3. If equals() → true → duplicate ignored
+4. If false → add new entry
+
+============================================================
+
+11️⃣ REAL-WORLD ANALOGY
+------------------------------------------------------------
+| Concept | Example |
+|----------|----------|
+| == | Check if two ID cards are the same card |
+| equals() | Check if two ID cards belong to the same person |
+
+============================================================
+
+12️⃣ BEST PRACTICES
+------------------------------------------------------------
+✅ Override equals() and hashCode() together
+✅ Use Objects.equals() for null-safe comparison
+✅ Use immutable fields in equality checks
+✅ Respect all 5 contract rules
+✅ Prefer IDE-generated equals() & hashCode()
+
+============================================================
+
+13️⃣ QUICK COMPARISON
+------------------------------------------------------------
+| Aspect | == Operator | equals() Method |
+|---------|--------------|----------------|
+| Compares | References | Values/Content |
+| Defined In | Language | Object class |
+| Can Override | ❌ No | ✅ Yes |
+| Default Behavior | Reference equality | Reference equality |
+| Used For | Primitives, object refs | Logical equality |
+
+============================================================
+
+✅ SUMMARY
+------------------------------------------------------------
+- equals() compares logical content; == compares references
+- Must be consistent with hashCode()
+- Must follow reflexive, symmetric, transitive, consistent, non-null rules
+- Use Objects.equals() for null-safe comparisons
+- Essential for correct behavior in HashMap, HashSet, and collections
+
+============================================================

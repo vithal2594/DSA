@@ -1,0 +1,297 @@
+📘 HASHCODE() IN JAVA – COMPLETE GUIDE
+============================================================
+
+1️⃣ WHAT IS hashCode() IN JAVA
+------------------------------------------------------------
+The `hashCode()` method in Java returns an integer hash value representing the object.
+Defined in the `Object` class:
+
+public class Object {
+    public native int hashCode();
+}
+
+🧠 It is used by hash-based collections (HashMap, HashSet, Hashtable)
+to determine an object’s storage bucket.
+
+============================================================
+
+2️⃣ PURPOSE OF hashCode()
+------------------------------------------------------------
+- Provides a numeric fingerprint (hash) of an object.
+- Used to store and retrieve data efficiently.
+- Speeds up searching and comparison operations.
+- Works alongside equals() in hash-based structures.
+
+============================================================
+
+3️⃣ INTERNAL WORKING (SIMPLIFIED)
+------------------------------------------------------------
+1. Collection calls hashCode() → gets integer hash.
+2. Converts hash → bucket index.
+3. If bucket already has entries → calls equals() for verification.
+4. If equals() → true → duplicate ignored.
+5. Else → new entry added.
+
+============================================================
+
+4️⃣ DEFAULT BEHAVIOR
+------------------------------------------------------------
+By default, hashCode() returns a value derived from the memory address.
+
+Example:
+Object obj = new Object();
+System.out.println(obj.hashCode()); // e.g., 356573597
+
+Different objects → different hash codes,
+even if they have same content.
+
+============================================================
+
+5️⃣ WHY OVERRIDE hashCode()
+------------------------------------------------------------
+If you override equals(), you must override hashCode().
+
+Otherwise, equal objects may go into different buckets,
+causing collections like HashSet or HashMap to malfunction.
+
+❌ Bad Example:
+------------------------------------------------------------
+class Person {
+    int id; String name;
+    Person(int id, String name) { this.id = id; this.name = name; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person p = (Person) o;
+        return id == p.id && name.equals(p.name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet<Person> set = new HashSet<>();
+        set.add(new Person(1, "A"));
+        set.add(new Person(1, "A"));
+        System.out.println(set.size()); // ❌ Output: 2
+    }
+}
+
+============================================================
+
+6️⃣ PROPER OVERRIDING OF hashCode()
+------------------------------------------------------------
+✅ Correct Example:
+------------------------------------------------------------
+import java.util.*;
+
+class Person {
+    int id; String name;
+    Person(int id, String name) { this.id = id; this.name = name; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person p = (Person) o;
+        return id == p.id && Objects.equals(name, p.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet<Person> set = new HashSet<>();
+        set.add(new Person(1, "A"));
+        set.add(new Person(1, "A"));
+        System.out.println(set.size()); // ✅ Output: 1
+    }
+}
+
+============================================================
+
+7️⃣ THE hashCode() AND equals() CONTRACT
+------------------------------------------------------------
+| RULE | DESCRIPTION |
+|------|--------------|
+| Rule 1 | If equals() returns true → hashCode() must be same |
+| Rule 2 | Same hash code doesn’t guarantee equality |
+| Rule 3 | hashCode() must be consistent during runtime |
+| Rule 4 | Unequal objects should aim for different hash codes |
+
+============================================================
+
+8️⃣ HOW HASHMAP USES hashCode()
+------------------------------------------------------------
+Map<String, String> map = new HashMap<>();
+map.put("Key", "Value");
+
+1️⃣ Compute hashCode() of "Key"
+2️⃣ Convert hash → bucket index
+3️⃣ If bucket empty → add entry
+4️⃣ Else compare with equals()
+5️⃣ If equals() true → update value, else → add new node
+
+============================================================
+
+9️⃣ GENERATING HASHCODE MANUALLY
+------------------------------------------------------------
+@Override
+public int hashCode() {
+    int result = 17; // arbitrary seed
+    result = 31 * result + id;
+    result = 31 * result + (name == null ? 0 : name.hashCode());
+    return result;
+}
+💡 The multiplier 31 spreads hash values evenly.
+
+============================================================
+
+🔟 INTERNAL HASHCODE FOR STRINGS
+------------------------------------------------------------
+String class overrides hashCode() as:
+------------------------------------------------------------
+@Override
+public int hashCode() {
+    int h = 0;
+    for (int i = 0; i < value.length; i++) {
+        h = 31 * h + value[i];
+    }
+    return h;
+}
+
+Example:
+System.out.println("ABC".hashCode()); // 64578
+System.out.println("ACB".hashCode()); // Different hash
+
+============================================================
+
+11️⃣ COLLISIONS
+------------------------------------------------------------
+Two different objects can have same hash code.
+When that happens → Java stores them in same bucket.
+equals() helps differentiate them.
+
+Example:
+System.out.println("FB".hashCode()); // 2236
+System.out.println("Ea".hashCode()); // 2236
+
+Different strings, same hash (collision).
+
+============================================================
+
+12️⃣ IMPORTANCE IN COLLECTIONS
+------------------------------------------------------------
+| COLLECTION | USE OF hashCode() |
+|-------------|------------------|
+| HashSet | Avoid duplicate entries |
+| HashMap | Determines key location |
+| HashTable | Similar to HashMap but synchronized |
+
+============================================================
+
+13️⃣ BEST PRACTICES
+------------------------------------------------------------
+✅ Always override hashCode() with equals()
+✅ Use immutable fields in hash computation
+✅ Use Objects.hash() or the 31 * pattern
+✅ Avoid using mutable fields
+✅ Maintain hash consistency
+✅ Avoid expensive operations in hashCode()
+✅ Test using HashSet or HashMap
+
+============================================================
+
+14️⃣ COMMON MISTAKES
+------------------------------------------------------------
+❌ Overriding equals() but not hashCode()
+❌ Using mutable objects as keys
+❌ Assuming unique hashCode() means unique object
+❌ Using variable data fields in hashCode()
+❌ Violating hash-equals contract
+
+============================================================
+
+15️⃣ REAL-WORLD ANALOGY
+------------------------------------------------------------
+Think of hashCode() as a "mailbox number":
+- Many people may live in same building (same hash)
+- equals() tells who exactly the person is (specific ID)
+
+============================================================
+
+16️⃣ COMBINED equals() & hashCode() EXAMPLE
+------------------------------------------------------------
+import java.util.Objects;
+import java.util.HashSet;
+
+class Book {
+    String isbn;
+    String title;
+
+    Book(String isbn, String title) {
+        this.isbn = isbn;
+        this.title = title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book b = (Book) o;
+        return Objects.equals(isbn, b.isbn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet<Book> books = new HashSet<>();
+        books.add(new Book("123", "Java Basics"));
+        books.add(new Book("123", "Java Basics"));
+        System.out.println(books.size()); // ✅ Output: 1
+    }
+}
+
+============================================================
+
+17️⃣ WHEN NOT TO OVERRIDE hashCode()
+------------------------------------------------------------
+- For immutable system classes like Thread, Class
+- When you only need reference equality
+- If objects are never used in hash-based collections
+
+============================================================
+
+18️⃣ QUICK COMPARISON: equals() vs hashCode()
+------------------------------------------------------------
+| ASPECT | equals() | hashCode() |
+|---------|-----------|------------|
+| Purpose | Logical equality | Bucket indexing |
+| Return Type | boolean | int |
+| Default Behavior | Reference equality | Memory address-based |
+| Can Override | ✅ Yes | ✅ Yes |
+| Used In | All objects | Hash-based collections |
+| Contract | Must align with hashCode() | Must align with equals() |
+
+============================================================
+
+19️⃣ SUMMARY
+------------------------------------------------------------
+✅ hashCode() returns an integer representing an object.
+✅ Used in hash-based data structures (HashSet, HashMap).
+✅ Equal objects must have same hashCode().
+✅ Unequal objects should try for unique hash codes.
+✅ Collisions handled using equals().
+✅ Crucial for performance and correctness of hash collections.
+
+============================================================
