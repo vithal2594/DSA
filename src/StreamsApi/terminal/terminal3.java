@@ -23,7 +23,6 @@ public class terminal3 {
             public String getDepartment() { return department; }
             public String getCity() { return city; }
             public double getSalary() { return salary; }
-            public String getName() { return name; }
             @Override public String toString() { return name + " (" + department + " in " + city + ")"; }
         }
 

@@ -1,8 +1,6 @@
 package BinarySearchTrees.Easy;
 import BinarySearchTrees.TreeNode;
 
-import java.util.*;
-
 public class BSTOperations2 {
     public static void main(String[] args) {
         // Create BST

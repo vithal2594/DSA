@@ -1,4 +1,4 @@
-package Prac.twoDimenstional;
+package twoDimenstional;
 
 public class diagonaltrav {
     

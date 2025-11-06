@@ -1,8 +1,9 @@
-package Prac.twoDimenstional;
+package twoDimenstional;
 
 import java.util.Scanner;
 
 public class SwapDiagonals {
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter size of square matrix:");

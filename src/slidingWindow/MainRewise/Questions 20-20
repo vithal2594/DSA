@@ -1,0 +1,94 @@
+Fixed-size-window:=
+
+
+| #  | Problem                                                   | Input Example                            | Expected Output        |
+| -- | --------------------------------------------------------- | ---------------------------------------- | ---------------------- |
+| 1  | Maximum sum of subarray of size k                         | `arr = [2,1,5,1,3,2], k = 3`             | `9`                    |
+| 2  | First negative number in every window of size k           | `arr = [12,-1,-7,8,-15,30,16,28], k = 3` | `[-1,-1,-7,-15,-15,0]` |
+| 3  | Count of distinct elements in every window of size k      | `arr = [1,2,1,3,4,2,3], k = 4`           | `[3,4,4,3]`            |
+| 4  | Maximum of all subarrays of size k                        | `arr = [1,3,-1,-3,5,3,6,7], k = 3`       | `[3,3,5,5,6,7]`        |
+| 5  | Average of all subarrays of size k                        | `arr = [1,12,-5,-6,50,3], k = 4`         | `12.75`                |
+| 6  | Minimum of all subarrays of size k                        | `arr = [9, 3, 5, 1, 7, 8], k = 3`        | `[3,1,1,1]`            |
+| 7  | Number of subarrays with sum greater than x               | `arr = [1,2,3,4,5], k = 3, x = 6`        | `3`                    |
+| 8  | Find subarray with maximum average of size k              | `arr = [1,12,-5,-6,50,3], k = 4`         | `12.75`                |
+| 9  | Count subarrays of size k with exactly x distinct numbers | `arr=[1,2,1,2,3], k=3, x=2`              | `3`                    |
+| 10 | Sum of elements in each window of size k                  | `arr=[1,2,3,4,5], k=2`                   | `[3,5,7,9]`            |
+| 11 | Minimum sum subarray of size k                            | `arr=[3,-1,2,5,1], k=2`                  | `1`                    |
+| 12 | Count of subarrays with even sum in window k              | `arr=[1,2,3,4,5], k=3`                   | `2`                    |
+| 13 | Replace each window of size k by its median               | `arr=[2,1,5,7,2,0,5], k=3`               | `[2,5,5,2,2]`          |
+| 14 | Find k consecutive elements with maximum product          | `arr=[2,3,5,1,6], k=2`                   | `30`                   |
+| 15 | Sum of squares of elements in each window                 | `arr=[1,2,3,4], k=2`                     | `[5,13,25]`            |
+| 16 | Minimum difference between max and min in each window     | `arr=[1,3,6,2,8], k=3`                   | `[5,4,6]`              |
+| 17 | Find number of increasing subarrays of size k             | `arr=[1,2,3,2,4,5], k=3`                 | `3`                    |
+| 18 | Find max bitwise AND of subarray of size k                | `arr=[5,1,3,2,6], k=2`                   | `2`                    |
+| 19 | Find number of perfect square elements in each window     | `arr=[1,4,6,9,16,25], k=3`               | `[2,1,2,2]`            |
+| 20 | Find window of size k having smallest sum                 | `arr=[10,2,3,1,5,1], k=2`                | `2 (window: [1,1])`    |
+
+
+🧩 VARIABLE-SIZE SLIDING WINDOW — MASTER LIST (60 Questions)
+🔢 A. Integer Array–Based Problems (30)
+#	Problem	Example Input	Expected Output
+1	Longest subarray with sum ≤ K	arr = [4,2,2,6,1], K = 8	3
+2	Smallest subarray with sum ≥ target	arr = [2,3,1,2,4,3], target = 7	2
+3	Longest subarray with sum exactly K	arr = [10,5,2,7,1,9], K = 15	4
+4	Count subarrays with product < K	arr = [10,5,2,6], K = 100	8
+5	Longest subarray with all positive numbers	arr = [1,-2,3,4,-5,8]	2
+6	Longest binary subarray with equal 0s and 1s	arr = [0,1,0,1,1,0,0]	6
+7	Longest subarray with sum divisible by K	arr = [2,7,6,1,4,5], K = 3	4
+8	Longest subarray with at most K zeros (flip 0 → 1)	arr = [1,1,0,0,1,1,1,0], K = 2	7
+9	Longest subarray containing at most K distinct integers	arr = [1,2,1,2,3], K = 2	4
+10	Count subarrays with at most K distinct numbers	arr = [1,2,1,3,4], K = 2	7
+11	Longest subarray with difference between max and min ≤ limit	arr = [8,2,4,7], limit = 4	2
+12	Longest subarray with alternating even-odd pattern	arr = [1,2,3,4,5,6]	6
+13	Longest subarray where product is even	arr = [1,3,5,7,9,2,4]	5
+14	Longest subarray with sum of elements ≤ X	arr = [1,2,3,4,5], X = 8	3
+15	Smallest subarray with sum exactly K	arr = [1,2,3,4,5], K = 9	2
+16	Longest subarray with sum multiple of K	arr = [23,2,4,6,7], K = 6	4
+17	Longest subarray with equal number of even and odd elements	arr = [2,4,6,1,3,5,7,8]	6
+18	Longest subarray with at most one negative number	arr = [2,3,-1,2,4,-5,3]	4
+19	Smallest subarray with sum of squares > K	arr = [1,2,3,4], K = 14	3
+20	Count of subarrays whose XOR < K	arr = [4,1,3,2], K = 2	5
+21	Longest subarray with even sum	arr = [1,2,3,4,5]	4
+22	Longest subarray with positive product	arr = [1,-2,-3,4]	4
+23	Longest subarray with zero sum	arr = [15,-2,2,-8,1,7,10,23]	5
+24	Longest subarray with at most K negative numbers	arr = [2,-3,-4,5,-6,7,8], K = 2	5
+25	Longest subarray with odd sum	arr = [1,2,3,4,5]	5
+26	Longest subarray where max-min < K	arr = [10,1,2,4,7,2], K = 5	4
+27	Longest subarray with prefix sum ≤ limit	arr = [2,3,1,2,4,3], limit = 8	4
+28	Smallest subarray with product > K	arr = [10,5,2,6], K = 40	2
+29	Count of subarrays with exactly K distinct integers	arr = [1,2,1,3,4], K = 2	7
+30	Longest subarray with difference of sum ≤ K	arr = [1,5,2,3,7,1], K = 5	3
+
+🧵 B. String-Based Problems (30)
+#	Problem	Example Input	Expected Output
+1	Longest substring without repeating characters	s = "abcabcbb"	3
+2	Longest substring with at most K distinct characters	s = "eceba", K = 2	3
+3	Smallest window in string containing all characters of another string	s = "ADOBECODEBANC", t = "ABC"	"BANC"
+4	Count substrings with exactly K distinct characters	s = "pqpqs", K = 2	7
+5	Longest substring with all vowels	s = "aeiouu"	5
+6	Longest substring with all unique vowels	s = "aeiouu"	5
+7	Longest substring that can be rearranged into a palindrome	s = "aabbccddeeff"	12
+8	Longest substring with same letter after K replacements	s = "AABABBA", K = 1	4
+9	Longest substring containing at most K vowels	s = "aeiouabcde", K = 3	6
+10	Minimum window substring containing all distinct characters	s = "aabcbcdbca"	"dbca"
+11	Longest substring with equal number of 0s and 1s	s = "110100110"	6
+12	Longest substring with at most one distinct vowel	s = "aaeeeiiooouu", K = 1	5
+13	Longest substring with same number of vowels and consonants	s = "abcdeiouu"	6
+14	Longest substring where each character appears at least K times	s = "aaabb", K = 3	3
+15	Count substrings with equal number of vowels and consonants	s = "abcdeiouu"	4
+16	Longest substring with alternating vowels and consonants	s = "abcdeiou"	5
+17	Longest substring containing at most K uppercase letters	s = "aAbBcCdD", K = 2	4
+18	Longest substring with sum of ASCII values ≤ K	s = "abcd", K = 300	4
+19	Count substrings that are anagrams of another string	s = "forxxorfxdofr", p = "for"	3
+20	Longest substring with repeating pattern “ab”	s = "abababa"	6
+21	Longest substring with more vowels than consonants	s = "abcdeiouu"	6
+22	Longest substring with same 0s and 1s	s = "10101000"	6
+23	Count substrings with at most K distinct characters	s = "abcbaa", K = 2	10
+24	Longest substring with at most K replacements allowed	s = "ABAB", K = 2	4
+25	Longest substring with even number of vowels	s = "leetcodeisgreat"	5
+26	Longest substring with K repeating characters	s = "aaabbccc", K = 2	5
+27	Longest substring where frequency of max - min ≤ 1	s = "aabbcc"	6
+28	Longest substring where every vowel appears even times	s = "eleetminicoworoep"	13
+29	Longest substring with sum of digits ≤ K	s = "123451", K = 10	4
+30	Smallest substring containing at least K distinct characters	s = "aaabcde", K = 3	"abc"
+

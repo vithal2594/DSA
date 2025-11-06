@@ -1,6 +1,5 @@
 package StreamsApi.intermediate;
 
-import java.util.Comparator;
 import java.util.List;
 
 // 1. Sort a list of integers in ascending order.
@@ -76,6 +75,14 @@ public class sorted {
 
         public int getSalary() {
             return salary;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setSalary(int salary) {
+            this.salary = salary;
         }
     }
 }

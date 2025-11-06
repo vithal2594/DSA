@@ -57,15 +57,11 @@ public class terminal1 {
         class Employee {
             String name;
             String department;
-            double salary;
-
             public Employee(String name, String department, double salary) {
                 this.name = name;
                 this.department = department;
-                this.salary = salary;
             }
             public String getDepartment() { return department; }
-            public String getName() { return name; }
             @Override public String toString() { return name + " (" + department + ")"; }
         }
 

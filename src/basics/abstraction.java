@@ -1,4 +1,4 @@
-package Prac.basics;
+package basics;
 
 
 // Abstract class representing a Vehicle (hiding implementation details)

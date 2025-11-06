@@ -4,7 +4,6 @@ import BinarySearchTrees.TreeNode;
 
 public class DeleteNodeBST {
     public static void main(String[] args){
-        TreeNode root = null;
 
     }
     public static TreeNode insert(TreeNode root, int val){

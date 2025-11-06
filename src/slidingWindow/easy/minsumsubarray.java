@@ -1,7 +1,5 @@
 package slidingWindow.easy;
 
-import java.util.List;
-
 public class minsumsubarray {
     public static void main(String[] args){
         int[] arr = {2, 5, 1, 8, 2, 9, 1};

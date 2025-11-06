@@ -19,7 +19,6 @@ public class terminal2 {
                 this.salary = salary;
             }
             public double getSalary() { return salary; }
-            public String getName() { return name; }
             @Override public String toString() { return name + " ($" + salary + ")"; }
         }
 
@@ -39,7 +38,6 @@ public class terminal2 {
                 this.grade = grade;
             }
             public int getGrade() { return grade; }
-            public String getName() { return name; }
             @Override public String toString() { return name + " (Grade: " + grade + ")"; }
         }
 

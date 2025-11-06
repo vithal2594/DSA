@@ -1,4 +1,4 @@
-package Prac.stream;
+package stream;
 
 import java.time.LocalTime;
 import java.util.*;

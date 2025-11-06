@@ -1,6 +1,5 @@
 package StreamsApi.intermediate;
 import java.util.*;
-import java.util.stream.*;
 
 // 1. Flatten a list of lists of integers.
 // 2. From a list of sentences, extract individual words.
@@ -33,11 +32,9 @@ public class flatmap {
         System.out.println(flattenedCsv);
 
         class Book {
-            String title;
             List<String> authors;
 
             Book(String title, List<String> authors) {
-                this.title = title;
                 this.authors = authors;
             }
         }

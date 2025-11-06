@@ -1,4 +1,4 @@
-package Prac.basics;
+package basics;
 
 public class overl {
     class test{

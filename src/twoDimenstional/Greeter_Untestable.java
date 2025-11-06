@@ -1,4 +1,4 @@
-package Prac.twoDimenstional;
+package twoDimenstional;
 class GreetingService {
     public String getGreetingPhrase() {
         // Imagine this does some work to decide the phrase

@@ -1,4 +1,4 @@
-package Prac.basics;
+package basics;
 
 abstract class Animal {
     abstract void makeSound(); // abstract method
