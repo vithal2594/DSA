@@ -9,7 +9,14 @@ public class variablearray {
       int[] arr2 = {2,3,1,2,4,3};
       int target2 = 7;
       System.out.println(minSubarrayWithSumGEK(arr2, target2)); // Output: 2
-
+ 	  int[] arr3={10,5,2,7,1,9};
+	  int k3=15;
+	  System.out.println(longestsubarraywithsumexactlyK(arr3,k3));
+      int[] arr4 = {10, 5, 2, 6};
+      int k4 = 100;
+      System.out.println(countSubarraysWithProductLessThanK(arr4, k4));
+      int[] arr5 = {1, 2, -3, 4, 5, 6, -1, 2};
+      System.out.println(longestsubarraywithPositivevalues(arr5));
   }
     public static int longestSubarraySumLEK(int[] arr, int K) {
         int n = arr.length;
@@ -76,7 +83,67 @@ public class variablearray {
     }
     return  minLength;
 }  
+    public static int longestsubarraywithsumexactlyK(int[] arr, int k) {
+        int i=0;
+        int j=0;
+        int n=arr.length;
+        int sum=0;
+        int maxlength=0;
+        while(j<n){
+            sum+=arr[j];
+            if(sum<k){
+                j++;
+            }else if(sum == k){
+                maxlength=Math.max(maxlength,j-i+1);
+                j++;
+            }else if(sum > k){
+                while(sum > k && i<=j){
+                    sum-=arr[i];
+                    i++;
+                }
+                if(sum == k){
+                    maxlength=Math.max(maxlength,j-i+1);
+                }
+                j++;
+            }
+        }
+        return maxlength;
+    }
+    public static int countSubarraysWithProductLessThanK(int[] arr, int k) {
+        int n=arr.length;
+        int i=0;
+        int j=0;
+        int count=0;
+        int product=1;
+        
+        while(j<n){
+            product*=arr[j];
+            while(product>=k){
+                product/=arr[i];
+                i++;
+            }
+            count+=(j-i+1);
+            j++;
+        }
+        return count;
+    }
+    public static int longestsubarraywithPositivevalues(int[] arr){
+        int i=0;
+        int j=0;
+        int count=0;
+        int maxcount=Integer.MIN_VALUE;
+        int n=arr.length;
+        while(j<n){
+            if(arr[j]> 0){
+                count++;
+                maxcount=Math.max(maxcount,count);
+            }else{
+                count=0;
+            }
+            j++;
+        }
+        return maxcount;
+    }
     
-
     
 }

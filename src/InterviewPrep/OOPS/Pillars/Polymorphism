@@ -346,14 +346,14 @@ public class Main {
 
 12️⃣ POLYMORPHISM VS INHERITANCE
 ------------------------------------------------------------
-| FEATURE | INHERITANCE | POLYMORPHISM |
-|----------|--------------|--------------|
-| Definition | Code reuse via parent-child | Same method, many forms |
-| Type | Structural | Behavioral |
-| Binding | Compile-time | Runtime |
-| Relationship | IS-A | Behaves like |
-| Focus | Reusing code | Redefining behavior |
-| Example | Dog extends Animal | Animal a = new Dog(); a.sound(); |
+| FEATURE     | INHERITANCE                 | POLYMORPHISM |
+|----------   |--------------               |--------------|
+| Definition  | Code reuse via parent-child | Same method, many forms |
+| Type        | Structural                  | Behavioral |
+| Binding     | Compile-time                 | Runtime | 
+| Relationship | IS-A                       |  Behaves like |
+| Focus        | Reusing code              | Redefining behavior |
+| Example      | Dog extends Animal        | Animal a = new Dog(); a.sound(); |
 
 ============================================================
 ✅ SUMMARY

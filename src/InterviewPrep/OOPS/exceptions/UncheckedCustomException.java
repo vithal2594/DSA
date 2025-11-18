@@ -1,4 +1,4 @@
-package exceptions;
+package InterviewPrep.OOPS.exceptions;
 
 public class UncheckedCustomException extends RuntimeException {
     public UncheckedCustomException() {
