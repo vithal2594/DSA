@@ -1,12 +1,14 @@
 Hirarchy:-
  1. Throwable
   1. Exception
+   UncheckedException:-
     3. RuntimeException
       4. NullPointerException
       5. IllegalArgumentException
       6. IllegalStateException
       7. IndexOutOfBoundsException
       8. ClassCastException
+   checkedException
     3. IOException
     3. SQLException
   2. Error

@@ -1,4 +1,4 @@
-package exceptions;
+package InterviewPrep.OOPS.exceptions;
 
 // Custom Checked Exception (not public)
 class InvalidAgeException extends Exception {
